@@ -9,7 +9,7 @@
     <title>Checkout example · Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/">
-q
+
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -34,20 +34,24 @@ q
     <link href="form-validation.css" rel="stylesheet">
   </head>
   <body class="bg-light">
+    {% if error %}
+      {{ error }}
+      <br>
+      <br>
+    {% endif %}
     <div class="container">
   <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h2>Edit User</h2>
-  <p>이건 그냥 쓰는거임</p>
+    <h1>회원가입</h1>
   </div>
 
     <div class="col-md-8 order-md-1">
-      <h4 class="mb-3">기본 정보</h4>
-      <form class="needs-validation" novalidate action="{% url %}">
+      <h4 class="mb-3">필수 정보</h4>
+      <form class="needs-validation" novalidate action="{% url 'edituser' %}">
                 <div class="row">
                   <div class="col-md-6 mb-3">
-                    <label for="name">이름</label>
-                    <input type="text" class="form-control" id="name" placeholder="" value="" required>
+                    <label for="name">UserName</label>
+                    <input type="text" class="form-control" id="username" name="Name" placeholder="User_Name" value="" required>
                     <div class="invalid-feedback">
                       Valid first name is required.
                     </div>
@@ -55,21 +59,47 @@ q
                 </div>
         
                 <div class="mb-3">
-                  <label for="username">아이디</label>
+                  <label for="username">ID</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">@</span>
+                      <span class="input-group-text">ID</span>
                     </div>
-                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <input type="text" class="form-control" id="user_id" name="username" placeholder="User-id" required>
                     <div class="invalid-feedback" style="width: 100%;">
                       Your username is required.
                     </div>
                   </div>
                 </div>
+
+                <div class="mb-3">
+                    <label for="username">Password</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Password</span>
+                        </div>
+                        <input type="password" class="form-control" id="user_password1" name="password1" placeholder="Password" required>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            Your Password is required.
+                        </div>
+                    </div>
+                </div>
         
                 <div class="mb-3">
+                    <label for="username">Comfirm Password</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Password</span>
+                        </div>
+                        <input type="password" class="form-control" id="user_password2" name="password2" placeholder="Password" required>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            Your Password is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
                   <label for="email">Email <span class="text-muted"></span></label>
-                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                   <div class="invalid-feedback">
                     유효한 이메일을 입력하세요.
                   </div>
@@ -77,10 +107,18 @@ q
         
                 <div class="mb-3">
                   <label for="address">Address</label>
-                  <input type="text" class="form-control" id="address" placeholder="서울 00구 00동 / 서울 00구 00로" required>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="서울 00구 00동 / 서울 00구 00로" required>
                   <div class="invalid-feedback">
                     주소를 입력하세요.
                   </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="introduce">자기소개</label>
+                    <textarea name="content" cols="50" rows="10" class="form-control" id="introduce" name="introduce" placeholder="소개해주세요!" required></textarea>
+                    <div class="invalid-feedback">
+                          주소를 입력하세요.
+                    </div>
                 </div>
                 
                 <hr class="mb-4">
@@ -92,9 +130,13 @@ q
                   <input type="checkbox" class="custom-control-input" id="back-end">
                   <label class="custom-control-label" for="back-end">백앤드</label>
                 </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="dontcare">
+                    <label class="custom-control-label" for="dontcare">상관없음</label>
+                </div>
         
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">수정</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">제출</button>
       </form>
     </div>
   </div>

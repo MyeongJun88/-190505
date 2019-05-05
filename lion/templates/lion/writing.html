@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
 <html>
 
 <head>
@@ -21,62 +26,74 @@
           .contents{
             width:100%;
             margin-bottom:20px;
+            float:center;
           }
           .gongu{
             float:right;
-            color:#125688;
+            color:#125698;
+            border:0; outline:0;
+            padding:0.75em 2em;
           }
           .row align-items-end{
            text-align:center; 
+           background-color: #808080;
           }
           .container {
             max-width: 670px;
-            background-color: #808080;
+            margin:-15px;
+            display: block;
+            margin: auto;
           } 
-          .col-md-3 label { display: inline-block; padding: 70px 75px; color: #ffffff; font-size: inherit; line-height: normal; vertical-align: middle; background-color: #808080; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; margin-top:19px; } 
+          .col-md-3 label { display: inline-block; padding: 40px 55px; color: #ffffff; font-size: 50px; line-height: normal; vertical-align: middle; background-color: #808080; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; margin-top:19px; border-radius: 3px ; } 
           .col-md-3 input[type="file"] {position: absolute; width: 10px; height: 10px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
-
+          .titlebox{
+            margin:15px;
+            padding:30px; 30px;
+            background-color: #eeeeee;
+            text-align:center;
+          }
     </style>
 </head>
 
 <body>
-<div class="container" >
-
+<div class="container">
+<div class="titlebox">
   <div class="row align-items-start" style="margin-top:20px">
-    <div class="col" style=" text-align: left;">
+    <div class="col" style=" text-align: left;" >
       <a href="javascript:history.back()" role='button' >&lt;</a>
     </div>
     <div class="col" style=" text-align: center;" >
-      <h4 class="newfile" >새 게시물</h4>
+      <h4 class="newfile"  >새 게시물</h4>
     </div>
     <div class="col">
       <input class="gongu" type="button" name="btn1" value="공유"></input>
     </div>
   </div>
+  </div>
     <!-- Force next columns to break to new line -->
   <div class="w-100"></div>
 
-    <br/>
+    <br/> <hr>
   <div class="row">
     <div class="col-md-3">
-      <label for="ex_file">+</label>
+      <label for="ex_file" >+</label>
       <input type="file" id="ex_file"/>
     </div>
     <div class="col-md-9">
        <form>
-        <input class="title" type="text" name="제목"><br>
-        <textarea class="contents" rows="15" cols="80"> </textarea>
+        <textarea class="contents" rows="1" cols="8">제목 </textarea>
+        <textarea class="contents" rows="15" cols="80">내용 입력... </textarea>
       </form>
     </div>
   </div>  
-    <br />
+    <hr>
   <div class="row align-items-end" >
     <div >
-      <h5 >   위치 추가 </h5>
+      <h5 >위치 추가 </h5>
     </div>
     <div float:left;>
-      <select class="form-control" style="width:200px;height:40px; margin-left:25px">
-        <option value="서울특별시">서울특별시</option>
+      <select class="form-control" style="width:200px;height:40px; margin-left:25px; background-color:#eeeeee">
+        <option value="서울특별시"  >서울특별시</option>
         <option value="경기도">경기도</option>
         <option value="충청도">충청도</option>
         <option value="경상도">경상도</option>
@@ -86,6 +103,10 @@
       </select>
     </div>
   </div>
-</div>    
+</div>   
+      <br/> 
+      <br/>
 </body>
 </html>
+
+{% endblock %}

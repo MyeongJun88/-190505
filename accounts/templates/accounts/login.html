@@ -51,19 +51,22 @@
       .h3{
         font-size: 50px;
       }
+      .singup{
+        padding:0 50%;
+      }
     </style>
   </head>
   <body class="text-center">
-    <form class="form-signin container login" action="{% url 'main'%}" method="POST">
+    <form class="form-signin container login" action="{% url 'login'%}" method="POST">
        {% csrf_token %}
         <img class="mb-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAqFBMVEUAAAD/nhv/////pRz/oxz/px2CVQ8gICBrSAzvmBr/ohz/oBv29vbx8fEvLy/slxqdZhE0IwVKSkq0dRS8vLw/KgeqqqpSNglPT09cXFywsLCtcROobBJOMwncjRj5oBxxTQ2DVQ/i4uIkGQSbm5uRXhA/Pz/e3t6CgoJ4Tw3QhhcTDgMpKSkdFQOPj48LBgH/rx3CfBVoaGhePgtycnLJyckWFhbLgxbpJLkQAAACCUlEQVR4nO3ciU7CQBRGYZQCtSwW9x0VFcEF3N//zUSHhCgUOu29dCac7wHknvyxGDSWSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOtq+FT0BXPUPiW/WjyqWBoNbV/jcdPOgWRgqdS9KG9YKVu/RM2qr9eSDRy7CuoOFT6L9409DWxmVC3sPSr0/agGkROF9wptEw+DSvGFvZpC2VQ/SjmjWqHigBNf6WZUKvwQfRNM0I/SPFR1CvUHNNLMqFG4kgGNsLN0RoXCd4WSZC/LZhQv/FCoWCjsLH6oSheudkBj8YyyhSsf0HhbNKNo4avC9ensJs8oWLincHlqb1tJM4oVNoob0EiaUaqw0AGNw/kzyhQ2jhUutnc6b0aRwhOFazM53w40CptuDGiczcyYv9CZAY39/zPmLWweKVyZT1yWLBT+qFDG3xlzFTZ3FO6TEFfqIoVODmi0pzNmL7y+U7hMTlyu5yy8UbhKVHvy8X/GQscHNG5/vxuzFTo/oNG9CLIVXsv/tkVLHGUobDn8CJ0RBhkKvUKh/yj0H4X+o9B/FPqPQv9R6D8K/Ueh/yj0H4X+o9B/FPpvLQqjqqWrftFX2xgXbgS2OkVfbSOc/Rup5baKvtoGhRS6j0IK3Uchhe6j0P/CS+t/wTDm1U/eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0PUNcnsg5Rf2SKEAAAAASUVORK5CYII=" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Mutstargram</h1>
         
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="username" id="inputEmail" class="form-control" placeholder="ID" required autofocus>
+        <label for="User_id" class="sr-only">ID</label>
+        <input type="text" name="username" id="User_id" class="form-control" placeholder="ID" autofocus>
         
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name = "password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" name = "password" id="inputPassword" class="form-control" placeholder="Password">
         
         <div class="checkbox mb-3">
           <label>
@@ -72,9 +75,9 @@
         </div>
         
         <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">회원가입</button>
-        
-        <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
     </form>
+    <br>
+    <a href="{% url 'signup' %}"><button class="btn btn-lg btn-primary btn-block signup" type="submit">회원가입</button></a>
+    <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
   </body>
 </html>

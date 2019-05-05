@@ -1,14 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Lion
-#1. 회원가입 페이지 - 자기소개(아이디, 비밀번호, 이름, 나이, 학년, 학교, 자기소개, 백앤드, 프론트 앤드 선택), 완료 버튼(비어있는 부분이 있으면 오류창?)/ 회원가입 버튼 클릭시 - introduce.html
-# Create your views here.
+
+
 def login(request):
     if request.method =="POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
         identity = Identity(username=username, password=password)
         identity.save()
-    return render(request, 'lion/login.html')
+    return render(request, 'lion/accounts/login.html')
     
 def main(request):
     lion = Lion.objects.all()
@@ -51,7 +51,7 @@ def edituser(request, id):
         lion.save()
         return redirect('login', lion.pk)
       
-#수정기능
+#글수정기능
 def edit(request, id):
     lion =  get_object_or_404(Lion, pk=id)
     return render(request, 'lion/edit.html', {'lion' : lion})
