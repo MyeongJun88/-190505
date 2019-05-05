@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Lion, Identity
+from .models import Lion
 #1. 회원가입 페이지 - 자기소개(아이디, 비밀번호, 이름, 나이, 학년, 학교, 자기소개, 백앤드, 프론트 앤드 선택), 완료 버튼(비어있는 부분이 있으면 오류창?)/ 회원가입 버튼 클릭시 - introduce.html
 # Create your views here.
 def login(request):
@@ -9,6 +9,10 @@ def login(request):
         identity = Identity(username=username, password=password)
         identity.save()
     return render(request, 'lion/login.html')
+    
+def main(request):
+    lion = Lion.objects.all()
+    return render(request, 'main.html', {'lion' : lion})
     
  #글 작성 페이지   
 def writing(request):
@@ -27,7 +31,7 @@ def writing(request):
     
    #상세내용 페이지 
 def detail(request, post_id):
-    post =  get_object_or_404(Post, pk=post_id)
+    lion =  get_object_or_404(Lion, pk=post_id)
     default_view_count = lion.view_count
     lion.view_count = default_view_count + 1
     lion.save()
@@ -36,7 +40,7 @@ def detail(request, post_id):
 #회원정보 수정 페이지     
 def edituser(request, id):
     if request.method == "POST":
-         title = request.POST.get('title')
+        title = request.POST.get('title')
         writer = request.POST.get('writer')
         ddate = request.POST.get('ddate')
         major = request.POST.get('major')
@@ -44,7 +48,7 @@ def edituser(request, id):
         people = request.POST.get('people')
         created_at = request.POST.get('created_at')
         lion = Lion(title=title, writer=writer, ddate=ddate, major=major, description=description, people=people, created_at=created_at)
-        player.save()
+        lion.save()
         return redirect('login', lion.pk)
       
 #수정기능
