@@ -78,10 +78,13 @@
       <div class="col-md-9" style="text-align:center;  ">
            <form action="{% url 'writing' %}" method="POST" enctype="multipart/form-data">
                {% csrf_token %}
-               <input type="file" name="image"><br>
-                
+               <input type="file" name="image"><br><br>
+                <label>작성자</label><br>
+                <input type="text" name="writer" text-align="center"><br><br>
                 <label>제목</label><br>
                 <input type="text" name="title" text-align="center"><br><br>
+                <label>마감기한</label>
+                <input type="date" name="deadline"><br><br>
                 
                 <label>내용</label><br>
                 <input type="text" name="description"><br><br>

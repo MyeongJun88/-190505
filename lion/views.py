@@ -18,15 +18,16 @@ def main(request):
 def writing(request):
     if request.method == "POST":
         title = request.POST.get('title')
-       # writer = request.POST.get('writer')
+        writer = request.POST.get('writer')
         #ddate = request.POST.get('ddate')
        # major = request.POST.get('major')
         description = request.POST.get('description')
+        deadline = request.POST.get('deadline')
        # people = request.POST.get('people')
         #created_at = request.POST.get('created_at')
         image = request.FILES['image']
         location = request.POST.get('location')
-        lion = Lion(title=title, description=description, location=location, image=image)
+        lion = Lion(title=title, description=description, location=location, image=image, deadline=deadline, writer=writer)
         lion.save()
         return redirect('main')
     return render(request, 'lion/writing.html')
@@ -50,7 +51,6 @@ def edituser(request, id):
         people = request.POST.get('people')
         created_at = request.POST.get('created_at')
         lion = Lion(title=title, writer=writer, ddate=ddate, major=major, description=description, people=people, created_at=created_at)
-        lion.save()
         return redirect('login', lion.pk)
       
 #글수정기능
@@ -63,5 +63,24 @@ def delete(request, id):
     if request.method == "POST":
         lion = Lion.objects.get(pk=id)
         lion.delete()
+        return redirect('main')
+        
+        
+def update(request, id):
+    if request.method == "POST":
+        lion = Lion.objects.get(pk=id)
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        writer = request.POST.get('writer')
+        location = request.POST.get('location')
+        deadline = request.POST.get('deadline')
+        image = request.FILES['image']
+        lion.title = title
+        lion.description = description
+        lion.location = location
+        lion.writer = writer
+        lion.image = image
+        lion.deadline = deadline
+        lion.save()
         return redirect('main')
         

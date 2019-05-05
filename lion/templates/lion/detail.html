@@ -1,76 +1,96 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+{% block content %}
 
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8"> </meta>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style>
-      html{background-image:url('http://img.hani.co.kr/imgdb/resize/2015/0718/00535983901_20150718.JPG')}
-      body{background-color:white;max-width:800px;margin:0 auto;}
-      header{display:inline;width:100%;}
-      nav{border:1px solid gray;margin:2%; width:600px; border:1px solid gray;background-color:white;}
-      .circle{width:80px;height:80px;object-fit:cover;border-radius:50%;border:1px solid gray;display:inline;}
-      .smallcircle{width:30px;height:30px;object-fit:cover;border-radius:50%;vertical-align: middle;}
-      .page{border:1px solid gray;margin:2%;background-color:white;border:1px solid gray;} 
-      .picsize{width:600;}
-      .logo{width:10%;}
-      table,td{margin:0px;padding:0px;border-collapse:collapse;}
-      .logoright{float:right;}
-      div{width: 600px;}
-      tr{
-        padding: 15px;
-      }
-      .page .page-header{
-        padding-top: 5px;
-        padding-left:5px;
-        padding-bottom:5px
-      }
-      .page .page-footer{
-        padding-left:5px;
-        padding-bottom:8px;
-      }
-      .bigcircle{
-        margin:10px;
-        display: inline-block;
-        width: initial;
-      }
-      .container {
-          margin: 0 auto;
-      }
-      .logotop{text-align:center;}
-      .logout{width:20px;height:20px;position:relative;left:260px}
-      a{text-decoration:none;color:black;}
-      a:hover{text-decoration:none;}
-      
-      .chattext{border:1px solid black;clear:both;width:515; height:250}
-      .chat{border:1px solid black;clear:both;width:515; height:30}
+        @font-face {
+              font-family: 'Billabong';
+              font-style: normal;
+              font-weight: normal;
+              src: local('Billabong'), url('Billabong.woff') format('woff');
+          }
+          .title{
+            margin-top:20px;
+            width:100%;
+            margin-bottom:20px;
+          }
+          .contents{
+            width:100%;
+            margin-bottom:20px;
+            float:center;
+          }
+          .gongu{
+            float:right;
+            color:#125698;
+            border:0; outline:0;
+            padding:0.75em 2em;
+          }
+          .row align-items-end{
+           text-align:center; 
+           background-color: #808080;
+          }
+          .container {
+            max-width: 670px;
+            margin:-15px;
+            display: block;
+            margin: auto;
+          } 
+          .col-md-3 label { display: inline-block; padding: 40px 55px; color: #ffffff; font-size: 50px; line-height: normal; vertical-align: middle; background-color: #808080; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; margin-top:19px; border-radius: 3px ; } 
+          .col-md-3 input[type="file"] {position: absolute; width: 10px; height: 10px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+          .titlebox{
+            margin:15px;
+            padding:30px; 30px;
+            background-color: #eeeeee;
+            text-align:center;
+          }
     </style>
-  </head>
-  <body>
-    <div class="container">
-    <header>
-      <div class="logotop">
-      <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAqFBMVEUAAAD/nhv/////pRz/oxz/px2CVQ8gICBrSAzvmBr/ohz/oBv29vbx8fEvLy/slxqdZhE0IwVKSkq0dRS8vLw/KgeqqqpSNglPT09cXFywsLCtcROobBJOMwncjRj5oBxxTQ2DVQ/i4uIkGQSbm5uRXhA/Pz/e3t6CgoJ4Tw3QhhcTDgMpKSkdFQOPj48LBgH/rx3CfBVoaGhePgtycnLJyckWFhbLgxbpJLkQAAACCUlEQVR4nO3ciU7CQBRGYZQCtSwW9x0VFcEF3N//zUSHhCgUOu29dCac7wHknvyxGDSWSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOtq+FT0BXPUPiW/WjyqWBoNbV/jcdPOgWRgqdS9KG9YKVu/RM2qr9eSDRy7CuoOFT6L9409DWxmVC3sPSr0/agGkROF9wptEw+DSvGFvZpC2VQ/SjmjWqHigBNf6WZUKvwQfRNM0I/SPFR1CvUHNNLMqFG4kgGNsLN0RoXCd4WSZC/LZhQv/FCoWCjsLH6oSheudkBj8YyyhSsf0HhbNKNo4avC9ensJs8oWLincHlqb1tJM4oVNoob0EiaUaqw0AGNw/kzyhQ2jhUutnc6b0aRwhOFazM53w40CptuDGiczcyYv9CZAY39/zPmLWweKVyZT1yWLBT+qFDG3xlzFTZ3FO6TEFfqIoVODmi0pzNmL7y+U7hMTlyu5yy8UbhKVHvy8X/GQscHNG5/vxuzFTo/oNG9CLIVXsv/tkVLHGUobDn8CJ0RBhkKvUKh/yj0H4X+o9B/FPqPQv9R6D8K/Ueh/yj0H4X+o9B/FPpvLQqjqqWrftFX2xgXbgS2OkVfbSOc/Rup5baKvtoGhRS6j0IK3Uchhe6j0P/CS+t/wTDm1U/eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0PUNcnsg5Rf2SKEAAAAASUVORK5CYII=">
-      
-      <a href="로그아웃 페이지"><img class="logout" src="https://png.pngtree.com/svg/20170825/de691f7b9e.png"></a>
+</head>
+
+<body>
+<div class="container">
+<div class="titlebox">
+    <div class="row align-items-start" style="margin-top:120px">
+      <div class="col" style=" text-align: left;" >
+        
       </div>
-   <div style="width:300px; height:300px; border:1px solid red; float:left; margin-right:10px;">
-<img src="#" "width:300px" "height:300px" >
-</div>
-<div style="width:200px; height:300px; border:1px solid green; float:left;">
-    제목:{{ lion.title }}<br/>내용:{{ lion.description }}<br/>
-    지역:{{ lion.location }}<br/>
+      <div class="col" style=" text-align: center;, margin-top: 200px; " >
+        <h4 class="newfile"  >{{ lion.title }}</h4>
+      </div>
+      <div class="col">
+        
+      </div>
+    </div>
+          </div>
+            <!-- Force next columns to break to new line -->
+          <div class="w-100"></div>
 
-</div>
-<div class="chattext"> 
-dddd
-</div>
+              <br/> <hr>
 
+      <div style="text-align:center;  ">
+
+               <img src="{{ lion.image.url }}" width="250px" height="250px"><br><br>
+        
+                <table border="0" style="margin-left:auto;margin-right:auto;">
+                  <tr>
+                    <td>내용:</td>
+                    <td>{{ lion.description }}</td>
+                  </tr>
+                  <tr>
+                    <td>지역:</td>
+                    <td>{{ lion.location }}</td>
+                  </tr>
+                </table>
+        </div>
+ 
     <a href="{% url 'edit' lion.pk %}" class="btn btn-primary">수정</a>
     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">삭제</a>
 
@@ -96,5 +116,7 @@ dddd
     </div>
   </div>
 </div>
-  </body>
+</body>
 </html>
+
+{% endblock %}

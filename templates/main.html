@@ -1,12 +1,30 @@
 <!DOCTYPE ht
 
 ml>
-
+{% load static %}
 
 <html>
   <head>
     <meta charset="utf-8"> </meta>
+    <link href="//db.onlinewebfonts.com/c/6d32b8e06f40fb7698cfb714b9e7975d?family=BillabongW00-Regular" rel="stylesheet" type="text/css"/>
     <style>
+      @import url(//db.onlinewebfonts.com/c/6d32b8e06f40fb7698cfb714b9e7975d?family=BillabongW00-Regular);
+      /*@font-face {*/
+      /*    font-family: 'Billabong';*/
+      /*    font-style: normal;*/
+      /*    font-weight: normal;*/
+      /*    src: url('font/Billabong.woff') format('woff');*/
+      /*}*/
+      @font-face {font-family: "BillabongW00-Regular";
+          src: url("//db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.eot");
+          src: url("//db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.eot?#iefix") format("embedded-opentype"),
+          url("//db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.woff2") format("woff2"),
+          url("//db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.woff") format("woff"),
+          url("//db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.ttf") format("truetype"),
+          url("//db.onlinewebfonts.com/t/6d32b8e06f40fb7698cfb714b9e7975d.svg#BillabongW00-Regular") format("svg");
+      }
+      
+      .headfont{font-family: 'BillabongW00-Regular';display:inline;}
       html{background-image:url('http://img.hani.co.kr/imgdb/resize/2015/0718/00535983901_20150718.JPG')}
       body{background-color:white;max-width:800px;margin:0 auto;}
       header{display:inline;width:100%;}
@@ -15,7 +33,7 @@ ml>
       .smallcircle{width:30px;height:30px;object-fit:cover;border-radius:50%;vertical-align: middle;}
       .page{border:1px solid gray;margin:2%;background-color:white;border:1px solid gray;} 
       .picsize{width:600;}
-      .logo{width:10%;}
+      .logo{width:10%;vertical-align: middle;}
       table,td{margin:0px;padding:0px;border-collapse:collapse;}
       .logoright{float:right;}
       div{width: 600px;}
@@ -39,9 +57,10 @@ ml>
       .container {
           margin: 0 auto;
       }
-      .logotop{text-align:center;}
-      .logout{width:20px;height:20px;position:relative;left:260px}
-      .write{width:20px;height:20px;position:relative;left:210px}
+      .logotop{display:inline;}
+      .logout{width:20px;height:20px;position:relative;left:250px}
+      .write{width:20px;height:20px;position:relative;left:250px}
+      .login{width:20px;height:20px;position:relative;left:250px}
       a{text-decoration:none;color:black;}
       a:hover{text-decoration:none;}
       
@@ -51,9 +70,13 @@ ml>
     <div class="container">
     <header>
       <div class="logotop">
-      <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAqFBMVEUAAAD/nhv/////pRz/oxz/px2CVQ8gICBrSAzvmBr/ohz/oBv29vbx8fEvLy/slxqdZhE0IwVKSkq0dRS8vLw/KgeqqqpSNglPT09cXFywsLCtcROobBJOMwncjRj5oBxxTQ2DVQ/i4uIkGQSbm5uRXhA/Pz/e3t6CgoJ4Tw3QhhcTDgMpKSkdFQOPj48LBgH/rx3CfBVoaGhePgtycnLJyckWFhbLgxbpJLkQAAACCUlEQVR4nO3ciU7CQBRGYZQCtSwW9x0VFcEF3N//zUSHhCgUOu29dCac7wHknvyxGDSWSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOtq+FT0BXPUPiW/WjyqWBoNbV/jcdPOgWRgqdS9KG9YKVu/RM2qr9eSDRy7CuoOFT6L9409DWxmVC3sPSr0/agGkROF9wptEw+DSvGFvZpC2VQ/SjmjWqHigBNf6WZUKvwQfRNM0I/SPFR1CvUHNNLMqFG4kgGNsLN0RoXCd4WSZC/LZhQv/FCoWCjsLH6oSheudkBj8YyyhSsf0HhbNKNo4avC9ensJs8oWLincHlqb1tJM4oVNoob0EiaUaqw0AGNw/kzyhQ2jhUutnc6b0aRwhOFazM53w40CptuDGiczcyYv9CZAY39/zPmLWweKVyZT1yWLBT+qFDG3xlzFTZ3FO6TEFfqIoVODmi0pzNmL7y+U7hMTlyu5yy8UbhKVHvy8X/GQscHNG5/vxuzFTo/oNG9CLIVXsv/tkVLHGUobDn8CJ0RBhkKvUKh/yj0H4X+o9B/FPqPQv9R6D8K/Ueh/yj0H4X+o9B/FPpvLQqjqqWrftFX2xgXbgS2OkVfbSOc/Rup5baKvtoGhRS6j0IK3Uchhe6j0P/CS+t/wTDm1U/eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0PUNcnsg5Rf2SKEAAAAASUVORK5CYII=">
-      <a href="{% url 'writing'%}"><img class="logout" src="https://png.pngtree.com/svg/20170825/de691f7b9e.png"></a>
-      <a href="#"><img class="write" src="https://static.thenounproject.com/png/395111-200.png"></a>
+    '<img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAqFBMVEUAAAD/nhv/////pRz/oxz/px2CVQ8gICBrSAzvmBr/ohz/oBv29vbx8fEvLy/slxqdZhE0IwVKSkq0dRS8vLw/KgeqqqpSNglPT09cXFywsLCtcROobBJOMwncjRj5oBxxTQ2DVQ/i4uIkGQSbm5uRXhA/Pz/e3t6CgoJ4Tw3QhhcTDgMpKSkdFQOPj48LBgH/rx3CfBVoaGhePgtycnLJyckWFhbLgxbpJLkQAAACCUlEQVR4nO3ciU7CQBRGYZQCtSwW9x0VFcEF3N//zUSHhCgUOu29dCac7wHknvyxGDSWSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOtq+FT0BXPUPiW/WjyqWBoNbV/jcdPOgWRgqdS9KG9YKVu/RM2qr9eSDRy7CuoOFT6L9409DWxmVC3sPSr0/agGkROF9wptEw+DSvGFvZpC2VQ/SjmjWqHigBNf6WZUKvwQfRNM0I/SPFR1CvUHNNLMqFG4kgGNsLN0RoXCd4WSZC/LZhQv/FCoWCjsLH6oSheudkBj8YyyhSsf0HhbNKNo4avC9ensJs8oWLincHlqb1tJM4oVNoob0EiaUaqw0AGNw/kzyhQ2jhUutnc6b0aRwhOFazM53w40CptuDGiczcyYv9CZAY39/zPmLWweKVyZT1yWLBT+qFDG3xlzFTZ3FO6TEFfqIoVODmi0pzNmL7y+U7hMTlyu5yy8UbhKVHvy8X/GQscHNG5/vxuzFTo/oNG9CLIVXsv/tkVLHGUobDn8CJ0RBhkKvUKh/yj0H4X+o9B/FPqPQv9R6D8K/Ueh/yj0H4X+o9B/FPpvLQqjqqWrftFX2xgXbgS2OkVfbSOc/Rup5baKvtoGhRS6j0IK3Uchhe6j0P/CS+t/wTDm1U/eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0PUNcnsg5Rf2SKEAAAAASUVORK5CYII="><h1 class="headfont">&nbsp&nbsp&nbsp Mutstagram</h1>
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout'%}"><img class="logout" src="https://png.pngtree.com/svg/20170825/de691f7b9e.png"></a>
+        <a href="{% url 'writing'%}"><img class="write" src="https://static.thenounproject.com/png/395111-200.png"></a>
+      {% else %}
+        <a href="{% url 'login'%}"><img class="login" src="data:image/png;base64,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"></a>
+      {% endif %}
       </div>
     </header>
     <nav>
@@ -73,7 +96,7 @@ ml>
           <tr>
             <td class='page-header'>
                 <a href="{% url 'detail' item.pk %}">
-                    <img class="smallcircle" src="{{item.image.url}}">{{item.writer}}
+                    <img class="smallcircle" src="{{item.image.url}}">&nbsp {{ item.writer }} <img src="{% static 'img/하트.png' %}" style="width : 30px; height:30px;">{{item.view_count}}
                 </a>
             </td>
           </tr>
@@ -82,7 +105,7 @@ ml>
                 <img class="picsize" style="max-width: 100%; height: auto;" src="{{item.image.url}}"></a></td>
           </tr>
           <tr>
-            <td class='page-footer'>{{ item.pk }}. {{ item.title }}</td>
+            <td class='page-footer'>{{ item.description }}</h2>
           </tr>
         </table>
       </div>
