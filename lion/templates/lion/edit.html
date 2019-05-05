@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<html>
+
+<head>
+    <meta charset="utf-8"> </meta>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+        @font-face {
+              font-family: 'Billabong';
+              font-style: normal;
+              font-weight: normal;
+              src: local('Billabong'), url('Billabong.woff') format('woff');
+          }
+          .title{
+            margin-top:20px;
+            width:100%;
+            margin-bottom:20px;
+          }
+          .contents{
+            width:100%;
+            margin-bottom:20px;
+            float:center;
+          }
+          .gongu{
+            float:right;
+            color:#125698;
+            border:0; outline:0;
+            padding:0.75em 2em;
+          }
+          .row align-items-end{
+           text-align:center; 
+           background-color: #808080;
+          }
+          .container {
+            max-width: 670px;
+            margin:-15px;
+            display: block;
+            margin: auto;
+          } 
+          .col-md-3 label { display: inline-block; padding: 40px 55px; color: #ffffff; font-size: 50px; line-height: normal; vertical-align: middle; background-color: #808080; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; margin-top:19px; border-radius: 3px ; } 
+          .col-md-3 input[type="file"] {position: absolute; width: 10px; height: 10px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+          .titlebox{
+            margin:15px;
+            padding:30px; 30px;
+            background-color: #eeeeee;
+            text-align:center;
+          }
+    </style>
+</head>
+
+<body>
+<div class="container">
+<div class="titlebox">
+    <div class="row align-items-start" style="margin-top:120px">
+      <div class="col" style=" text-align: left;" >
+        
+      </div>
+      <div class="col" style=" text-align: center;, margin-top: 200px; " >
+        <h4 class="newfile"  >게시물 수정</h4>
+      </div>
+      <div class="col">
+        
+      </div>
+    </div>
+          </div>
+            <!-- Force next columns to break to new line -->
+          <div class="w-100"></div>
+
+              <br/> <hr>
+     <form action="% url 'main' %" method="POST">
+                           {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-3">
+                    <label for="ex_file" >+</label>
+                    <input type="file" id="ex_file"/>
+                  </div>
+      </form>
+      <div class="col-md-9" style="text-align:center;">
+           <form action="% url 'main' %" method="POST">
+               {% csrf_token %}
+                
+                <label>제목</label><br>
+                <input type="text" name="title" text-align="center" value="{{ lion.title }}"><br><br>
+                
+                <label>내용</label><br>
+                <input type="text" name="description" value="{{ lion.description }}"><br><br>
+                
+                <input type='radio' name='location' value='서울' />서울
+                <input type='radio' name='location' value='부산' />부산
+                <input type='radio' name='location' value='인천' />인천
+                    <br>
+                    <br>
+          
+                 <input type="submit" class="btn btn-primary"value="등록">
+          </form>
+        </div>
+ 
+</body>
+</html>
+
+{% endblock %}

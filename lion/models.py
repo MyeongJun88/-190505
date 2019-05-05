@@ -8,8 +8,8 @@ class Identity(models.Model):
 class Lion(models.Model):
     title = models.CharField(max_length=200)
     writer = models.CharField(max_length=200)
-    ddate = models.DateField(auto_now=False, auto_now_add=False)
-    deadline = models.DateField(auto_now=False, auto_now_add=False)
+    ddate = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    deadline = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     description = models.TextField()
     location = models.CharField(max_length=200, default="")
     image = models.ImageField(upload_to='images/', blank=True)

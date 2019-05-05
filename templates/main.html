@@ -1,15 +1,21 @@
-<!DOCTYPE html>
+<!DOCTYPE ht
+
+ml>
+
+
 <html>
   <head>
     <meta charset="utf-8"> </meta>
     <style>
+      html{background-image:url('http://img.hani.co.kr/imgdb/resize/2015/0718/00535983901_20150718.JPG')}
+      body{background-color:white;max-width:800px;margin:0 auto;}
       header{display:inline;width:100%;}
-      nav{border:1px solid gray;margin:2%; width:600px;}
-      .circle{width:80px;height:80px;object-fit:cover;border-radius:50%}
+      nav{border:1px solid gray;margin:2%; width:600px; border:1px solid gray;background-color:white;}
+      .circle{width:80px;height:80px;object-fit:cover;border-radius:50%;border:1px solid gray;display:inline;}
       .smallcircle{width:30px;height:30px;object-fit:cover;border-radius:50%;vertical-align: middle;}
-      .page{border:1px solid gray;margin:2%;background-color:white;} 
+      .page{border:1px solid gray;margin:2%;background-color:white;border:1px solid gray;} 
       .picsize{width:600;}
-      .logo{width:20%;}
+      .logo{width:10%;}
       table,td{margin:0px;padding:0px;border-collapse:collapse;}
       .logoright{float:right;}
       div{width: 600px;}
@@ -25,25 +31,39 @@
         padding-left:5px;
         padding-bottom:8px;
       }
-      .bigcircle{margin:10px;}
+      .bigcircle{
+        margin:10px;
+        display: inline-block;
+        width: initial;
+      }
       .container {
           margin: 0 auto;
       }
+      .logotop{text-align:center;}
+      .logout{width:20px;height:20px;position:relative;left:260px}
+      .write{width:20px;height:20px;position:relative;left:210px}
+      a{text-decoration:none;color:black;}
+      a:hover{text-decoration:none;}
+      
     </style>
   </head>
   <body>
     <div class="container">
     <header>
-      <img class="logo" src="https://i2.wp.com/www.sleepapnea.org/wp-content/uploads/2017/04/instagram-logo.png?ssl=1">
-      <a href="팝업"><img class="logoright" src="하트=스크랩모임or다찼습니다팝업"></a>
-      <a href="내페이지"><img class="logoright" src="사람모양"></a>
-      <a href="로그인 페이지"><img class="logout" src="로그아웃">로그아웃</a>
+      <div class="logotop">
+      <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAqFBMVEUAAAD/nhv/////pRz/oxz/px2CVQ8gICBrSAzvmBr/ohz/oBv29vbx8fEvLy/slxqdZhE0IwVKSkq0dRS8vLw/KgeqqqpSNglPT09cXFywsLCtcROobBJOMwncjRj5oBxxTQ2DVQ/i4uIkGQSbm5uRXhA/Pz/e3t6CgoJ4Tw3QhhcTDgMpKSkdFQOPj48LBgH/rx3CfBVoaGhePgtycnLJyckWFhbLgxbpJLkQAAACCUlEQVR4nO3ciU7CQBRGYZQCtSwW9x0VFcEF3N//zUSHhCgUOu29dCac7wHknvyxGDSWSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOtq+FT0BXPUPiW/WjyqWBoNbV/jcdPOgWRgqdS9KG9YKVu/RM2qr9eSDRy7CuoOFT6L9409DWxmVC3sPSr0/agGkROF9wptEw+DSvGFvZpC2VQ/SjmjWqHigBNf6WZUKvwQfRNM0I/SPFR1CvUHNNLMqFG4kgGNsLN0RoXCd4WSZC/LZhQv/FCoWCjsLH6oSheudkBj8YyyhSsf0HhbNKNo4avC9ensJs8oWLincHlqb1tJM4oVNoob0EiaUaqw0AGNw/kzyhQ2jhUutnc6b0aRwhOFazM53w40CptuDGiczcyYv9CZAY39/zPmLWweKVyZT1yWLBT+qFDG3xlzFTZ3FO6TEFfqIoVODmi0pzNmL7y+U7hMTlyu5yy8UbhKVHvy8X/GQscHNG5/vxuzFTo/oNG9CLIVXsv/tkVLHGUobDn8CJ0RBhkKvUKh/yj0H4X+o9B/FPqPQv9R6D8K/Ueh/yj0H4X+o9B/FPpvLQqjqqWrftFX2xgXbgS2OkVfbSOc/Rup5baKvtoGhRS6j0IK3Uchhe6j0P/CS+t/wTDm1U/eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0PUNcnsg5Rf2SKEAAAAASUVORK5CYII=">
+      <a href="{% url 'writing'%}"><img class="logout" src="https://png.pngtree.com/svg/20170825/de691f7b9e.png"></a>
+      <a href="#"><img class="write" src="https://static.thenounproject.com/png/395111-200.png"></a>
+      </div>
     </header>
     <nav>
+    {% for item in lion.all %}
       <div class="bigcircle">
         <a href>
-            <img class="circle" src="http://img.hani.co.kr/imgdb/resize/2015/0718/00535983901_20150718.JPG"></a>/*여기에는 최근에 신청된 모임이 동그랗게 들어감.
+            <img class="circle" src="{{item.image.url}}">
+        </a>
       </div>
+    {% endfor %}
     </nav>
     
     {% for item in lion.all %}

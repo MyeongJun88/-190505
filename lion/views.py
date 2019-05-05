@@ -18,13 +18,15 @@ def main(request):
 def writing(request):
     if request.method == "POST":
         title = request.POST.get('title')
-        writer = request.POST.get('writer')
-        ddate = request.POST.get('ddate')
-        major = request.POST.get('major')
+       # writer = request.POST.get('writer')
+        #ddate = request.POST.get('ddate')
+       # major = request.POST.get('major')
         description = request.POST.get('description')
-        people = request.POST.get('people')
-        created_at = request.POST.get('created_at')
-        lion = Lion(title=title, writer=writer, ddate=ddate, major=major, description=description, people=people, created_at=created_at)
+       # people = request.POST.get('people')
+        #created_at = request.POST.get('created_at')
+        image = request.FILES['image']
+        location = request.POST.get('location')
+        lion = Lion(title=title, description=description, location=location, image=image)
         lion.save()
         return redirect('main')
     return render(request, 'lion/writing.html')
@@ -62,3 +64,4 @@ def delete(request, id):
         lion = Lion.objects.get(pk=id)
         lion.delete()
         return redirect('main')
+        

@@ -34,20 +34,16 @@
     <link href="form-validation.css" rel="stylesheet">
   </head>
   <body class="bg-light">
-    {% if error %}
-      {{ error }}
-      <br>
-      <br>
-    {% endif %}
     <div class="container">
-  <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1>회원가입</h1>
-  </div>
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1>회원가입</h1>
+      </div>
 
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">필수 정보</h4>
-      <form class="needs-validation" novalidate action="{% url 'edituser' %}">
+      <form class="needs-validation" novalidate action="{% url 'edituser' %}" method="POST">
+        {% csrf_token %}
                 <div class="row">
                   <div class="col-md-6 mb-3">
                     <label for="name">UserName</label>
@@ -136,13 +132,13 @@
                 </div>
         
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">제출</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">가입</button>
       </form>
     </div>
   </div>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 성신여대멋쟁이사자처럼</p>
+    <p class="mb-1">&copy; 새뜻톤 2019새뜻톤 2019</p>
   </footer>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -14,7 +14,7 @@ def edituser(request):
             except User.DoesNotExist:
                 user = User.objects.create_user(
                     request.POST['username'], password=request.POST['password1'])
-                return redirect('accounts/login.html')
+                return redirect('login')
         else:
             return render(request, 'accounts/edituser.html', {'error': 'Passwords must match'})
     else:
@@ -34,6 +34,3 @@ def login(request):
             return render(request, 'accounts/login.html', {'error': 'username or password is incorrect.'})
     else:
         return render(request, 'accounts/login.html')
-        
-def signup(request):
-    return redirect('accounts/edituser.html')
