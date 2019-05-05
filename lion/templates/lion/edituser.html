@@ -1,0 +1,85 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    
+        body{text-align:center; margin:0; background-color:gray;}
+        header{padding:3%; background-color:white;}
+        article{margin:5%;}
+        div{background-color:white;text-align:center;border:1px solid black;}
+        form { 
+                margin: 0 auto; 
+                width:250px;
+             }
+        table{width:400px;}
+        table tr, td{
+            padding:2%;
+        }
+
+    </style>
+    <title>edit user</title>
+    
+</head>
+<body>
+    <header>
+        <h1>edit user</h1>
+    </header>
+    <article>
+        <div>
+            <form>
+                <br>
+                <table>
+                    <tr>
+                        <td>이름</td>
+                        <td><input type="text" name = "name"></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>소개</td>
+                        <td><input type = "text" name = "command"></td>
+                    </tr>
+                    <tr>
+                        <td>이메일</td>
+                        <td><input type = "email" name = "email"></td>
+                    </tr>
+                    <tr>
+                        <td>전화번호</td>
+                        <td><input type = "text" name = "phonenum"></td>
+                    </tr>
+                    <tr>
+                        <td>개발</td>
+                        <td>프론트앤드<input type = "checkbox" name = "sort" value = "front">
+                백앤드<input type="checkbox" name = "sort" value = "back"></td>
+                    </tr>
+                </table>
+                <br>
+                <input type="submit" value = "저장" alert('저장되었습니다.')>
+                <br><br>
+            </form>
+        </div>
+        
+       <!-- <img src="{{ lion.image.url }}"></img> -->
+    </article>
+    
+</body>
