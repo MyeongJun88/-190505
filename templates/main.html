@@ -1,3 +1,5 @@
+<head>
+<meta charset="utf-8">
 <style>
 
 /*
@@ -29,6 +31,8 @@ body {
     color: #262626;
     padding-bottom: 3rem;
 }
+  
+header{border-bottom:1px solid gray; text-align:center; font-size:1.5em; padding:1%;}
 
 img {
     display: block;
@@ -382,9 +386,17 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
 </style>
 
+</head>
+
 <body>
+  
+  <header>
     
-    <header>
+    <h1>멋스타그램</h1>
+    
+  </header>
+    
+  <main>
 
 	<div class="container">
 
@@ -398,9 +410,9 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
 			<div class="profile-user-settings">
 
-				<h1 class="profile-user-name">**대학교 멋사 커뮤니티</h1>
+				<h1 class="profile-user-name">{%이름%}</h1>
 
-				<button class="btn profile-edit-btn" href="">개인계정 아이디</button>
+				<button class="btn profile-edit-btn" href=""★</button>
 
 				<button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
 
@@ -428,9 +440,6 @@ Remove or comment-out the code block below to see how the browser will fall-back
 	</div>
 	<!-- End of container -->
 
-</header>
-
-<main>
 
 	<div class="container">
 
@@ -663,3 +672,32 @@ Remove or comment-out the code block below to see how the browser will fall-back
 </main>
 
 </body>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>CSS Buttons</h2>
+
+<button>Default Button</button>
+<a href="#" class="button">Link Button</a>
+<button class="button">Button</button>
+<input type="button" class="button" value="Input Button">
+
+</body>
+</html>

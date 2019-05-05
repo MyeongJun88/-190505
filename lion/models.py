@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+class Identity(models.Model):
+    username = models.CharField(max_length=200, default="")
+    password = models.IntegerField(default="")
     
 class Lion(models.Model):
     title = models.CharField(max_length=200)
@@ -8,7 +11,7 @@ class Lion(models.Model):
     ddate = models.DateField(auto_now=False, auto_now_add=False)
     deadline = models.DateField(auto_now=False, auto_now_add=False)
     description = models.TextField()
-    # location = models.ImageField(upload_to='media/',)
+    location = models.CharField(max_length=200, default="")
     image = models.ImageField(upload_to='images/', blank=True)
     people_count = models.IntegerField(default=0)
     major = models.CharField(max_length = 20, default="")
